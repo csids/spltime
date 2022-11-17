@@ -35,27 +35,27 @@ keep_sundays_and_latest_date_internal <- function(dates,
   }
   if (format == "isoyearweek_c") {
     values[
-      date %in% spltime::dates_by_isoyearweek$sun,
+      date %in% cstime::dates_by_isoyearweek$sun,
       time_description := paste0(date_to_isoyearweek_c(date))
     ]
   } else if (format == "Uke isoweek_c") {
     values[
-      date %in% spltime::dates_by_isoyearweek$sun,
+      date %in% cstime::dates_by_isoyearweek$sun,
       time_description := paste0("Uke ", date_to_isoweek_c(date))
     ]
   } else if (format == "isoyearweek_c-1/isoyearweek_c") {
     values[
-      date %in% spltime::dates_by_isoyearweek$sun,
+      date %in% cstime::dates_by_isoyearweek$sun,
       time_description := paste0(date_to_isoyearweek_c(date - 7), "/", date_to_isoyearweek_c(date))
     ]
   } else if (format == "Uke isoweek_c-1/isoweek_c") {
     values[
-      date %in% spltime::dates_by_isoyearweek$sun,
+      date %in% cstime::dates_by_isoyearweek$sun,
       time_description := paste0("Uke ", date_to_isoweek_c(date - 7), "/", date_to_isoweek_c(date))
     ]
   } else if (format == "date") {
     values[
-      date %in% spltime::dates_by_isoyearweek$sun,
+      date %in% cstime::dates_by_isoyearweek$sun,
       time_description := as.character(date)
     ]
   }

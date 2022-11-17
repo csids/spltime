@@ -1,10 +1,10 @@
 ---
-title: "spltime"
+title: "cstime"
 output: rmarkdown::html_vignette
 author: "Chi Zhang"
 date: "2021-09-15"
 vignette: >
-  %\VignetteIndexEntry{spltime}
+  %\VignetteIndexEntry{cstime}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-`spltime` provides date time functions for public health purposes.
+`cstime` provides date time functions for public health purposes.
 
 The core functionality is consistent time conversion between 
 
@@ -28,11 +28,11 @@ The core functionality is consistent time conversion between
 
 It also provides functions to generate rolling dates for computing the weekly, bi-weekly, 4 week averages. 
 
-`spltime` is part of the `fhiverse` package suite.
+`cstime` is part of the `fhiverse` package suite.
 
 
 ```{r setup}
-library(spltime)
+library(cstime)
 library(magrittr)
 ```
 

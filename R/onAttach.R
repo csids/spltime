@@ -2,16 +2,16 @@
 #' @importFrom magrittr %>%
 .onAttach <- function(libname, pkgname) {
   version <- tryCatch(
-    utils::packageDescription("spltime", fields = "Version"),
+    utils::packageDescription("cstime", fields = "Version"),
     warning = function(w) {
       1
     }
   )
 
   packageStartupMessage(paste0(
-    "spltime ",
+    "cstime ",
     version,
     "\n",
-    "https://docs.sykdomspulsen.no/spltime"
+    "https://www.csids.no/cstime/"
   ))
 }

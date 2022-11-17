@@ -30,7 +30,7 @@ For the output, the user need to specify whether numeric or string is required. 
 
 
 ```{r}
-library(spltime)
+library(cstime)
 library(magrittr)
 ```
 

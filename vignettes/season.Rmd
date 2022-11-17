@@ -29,7 +29,7 @@ ISO week can be 1 to 53.
 Season week can be 1 to 52. ISO week 53 is season week 23.5.
 
 ```{r}
-library(spltime)
+library(cstime)
 library(magrittr)
 ```
 

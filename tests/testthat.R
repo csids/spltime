@@ -1,4 +1,4 @@
 library(testthat)
-library(spltime)
+library(cstime)
 
-test_check("spltime")
+test_check("cstime")

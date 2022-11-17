@@ -31,7 +31,7 @@ gen_norway_workdays_by_date <- function(){
   #
   
   info <- readxl::read_excel(
-    system.file("rawdata", "norway_holidays.xlsx", package = "spltime")
+    system.file("rawdata", "norway_holidays.xlsx", package = "cstime")
   )
   info$date <- as.Date(info$date)
   setDT(info)
