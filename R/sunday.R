@@ -11,6 +11,10 @@ keep_sundays_and_latest_date_internal <- function(dates,
                                                   format = "Uke isoweek_c-1/isoweek_c",
                                                   keep_delete = TRUE,
                                                   keep_latest_date = TRUE) {
+  n <- NULL
+  isoyearweek <- NULL
+  time_description <- NULL
+  
   stopifnot(format %in% c(
     "isoyearweek_c",
     "Uke isoweek_c",

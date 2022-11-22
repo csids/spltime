@@ -1,7 +1,7 @@
 ---
 title: "Season week"
 author: "Chi Zhang"
-date: "`r Sys.Date()`"
+date: "2022-03-14"
 output:
   rmarkdown::html_vignette:
     fig_width: 6
@@ -21,31 +21,34 @@ knitr::opts_chunk$set(
 )
 ```
 
+Season week (i.e. the week number within a season) conversion is used for certain outcomes of interest, such as influenza. It is frequently used for plotting purposes.
 
-Season week conversion is used for certain outcome of interest, such as influenza.
-
-ISO week can be 1 to 53. 
-
-Season week can be 1 to 52. ISO week 53 is season week 23.5.
+Isoweek can be integers between 1 and 53. Season week can be integers between 1 and 52. When isoweek is 53, season week is 23.5.
 
 ```{r}
 library(cstime)
 library(magrittr)
+library(data.table)
 ```
 
-
-
+```{r, echo = FALSE}
+library(ggplot2)
+pd <- data.table(isoweek = 1:53, seasonweek = isoweek_to_seasonweek_n(1:53))
+q <- ggplot(pd, aes(x=seasonweek, y = isoweek))
+q <- q + geom_point()
+q <- q + geom_point(data = pd[isoweek==53], mapping = aes(color="Isoweek==53"))
+q <- q + scale_color_discrete(NULL)
+q <- q + scale_x_continuous("seasonweek", breaks = seq(1,52,4))
+q <- q + scale_y_continuous("isoweek", breaks = seq(1,53,4))
+q
+```
 
 ```{r}
 seasonweek_to_isoweek_c(10)
 seasonweek_to_isoweek_n(10)
-isoweek_to_seasonweek_n(1)  # only has n
-```
-
-
-
-```{r}
+isoweek_to_seasonweek_n(1)
 seasonweek_to_isoweek_n(1:52)
-isoweek_to_seasonweek_n(1:53)  
+isoweek_to_seasonweek_n(1:53)
 ```
+
 

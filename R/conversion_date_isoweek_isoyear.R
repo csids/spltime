@@ -148,6 +148,7 @@ isoyearweek_to_isoweek_c <- function(yrwk) {
 #' isoyear_to_last_isoyearweek_c(c(2019, 2019, 2020, 2021))
 #' @export
 isoyear_to_last_isoyearweek_c <- function(x) {
+  isoyearweek <- NULL
   x <- as.numeric(x)
   retval <- data.table(isoyear = x)[cstime::dates_by_isoyearweek, on = "isoyear", isoyearweek := isoyearweek]$isoyearweek
 
@@ -173,6 +174,7 @@ isoyear_to_last_isoweek_n <- function(x) {
 #' isoyear_to_last_date(c(2019, 2019, 2020, 2021))
 #' @export
 isoyear_to_last_date <- function(x) {
+  sun <- NULL
   x <- as.numeric(x)
   retval <- data.table(isoyear = x)[cstime::dates_by_isoyearweek, on = "isoyear", sun := sun]$sun
 
@@ -187,6 +189,7 @@ isoyear_to_last_date <- function(x) {
 #' isoyearweek_to_last_date(c("2019-19", "2020-01"))
 #' @export
 isoyearweek_to_last_date <- function(x) {
+  sun <- NULL
   retval <- data.table(isoyearweek = x)[cstime::dates_by_isoyearweek, on = "isoyearweek", sun := sun]$sun
 
   return(retval)

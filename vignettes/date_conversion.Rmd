@@ -1,7 +1,7 @@
 ---
 title: "Date, year, week conversion"
 author: "Chi Zhang"
-date: "`r Sys.Date()`"
+date: "2022-05-04"
 output:
   rmarkdown::html_vignette:
     fig_width: 6
@@ -23,17 +23,14 @@ knitr::opts_chunk$set(
 
 We create the following functions to make it easier to work with date and times in different formats. 
 
-
 For the input, we allow either a numeric (3) or string ("03", "2020-03"). 
 
 For the output, the user need to specify whether numeric or string is required. Functions end with `c` returns a character output and `n` returns a double. 
-
 
 ```{r}
 library(cstime)
 library(magrittr)
 ```
-
 
 ## Which year/week is this date?
 
@@ -52,10 +49,7 @@ date_to_isoweek_n('2021-01-01')
 date_to_isoyearweek_c('2021-08-11')
 ```
 
-
-
-
-## Get year/week from a `isoyearweek` string
+## Get isoyear/isoweek from a `isoyearweek` string
 
 ```{r}
 isoyearweek_to_isoyear_c("2021-02")
@@ -63,7 +57,6 @@ isoyearweek_to_isoyear_n("2021-02")
 isoyearweek_to_isoweek_c("2021-02")
 isoyearweek_to_isoweek_n("2021-02")
 ```
-
 
 A list of `isoyearweek` can be accessed in the following way. 
 

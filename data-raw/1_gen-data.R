@@ -1,33 +1,32 @@
-#' Norwegian workdays and holidays by date
-#'
-#' @format
-#' \describe{
-#' \item{date}{Date.}
-#' \item{day_of_week}{Integer. 1 = Monday, 7 = Sunday}
-#' \item{mon_to_fri}{Integer. 1 between Monday and Friday, 0 between Saturday and Sunday}
-#' \item{sat_to_sun}{Integer. 1 between Saturday and Sunday, 0 between Monday and Friday}
-#' \item{public_holiday}{Integer. 1 if public holiday (helligdag), 0 if not public holiday}
-#' \item{freeday}{Integer. 1 if public holiday (helligdag) or sat_to_sun==1, 0 otherwise}
-#' \item{workday}{Integer. 1 if freeday==0, 0 if freeday==1}
-#' }
-"norway_workdays_by_date"
+# gen_dates_by_isoyearweek ----
+days <- data.table::data.table(day = seq.Date(as.Date("1950-01-02"), as.Date("2100-01-01"), by = "days"))
+days[, isoyear := as.integer(format.Date(day, format = "%G"))]
+days[, isoyearweek := format.Date(day, format = "%G-%V")]
+days <- days[, .(mon = as.Date(min(day))), by = .(isoyear, isoyearweek)]
+days[, tue := mon + 1]
+days[, wed := mon + 2]
+days[, thu := mon + 3]
+days[, fri := mon + 4]
+days[, sat := mon + 5]
+days[, sun := mon + 6]
+days[, weekdays := list(list(c(mon[1], tue[1], wed[1], thu[1], fri[1]))), by = isoyearweek]
+days[, weekend := list(list(c(sat[1], sun[1]))), by = isoyearweek]
+days[, days := list(list(c(mon[1], tue[1], wed[1], thu[1], fri[1], sat[1], sun[1]))), by = isoyearweek]
 
-#' Norwegian workdays and holidays by isoyearweek
-#'
-#' @format
-#' \describe{
-#' \item{isoyearweek}{YYYY-WW}
-#' \item{public_holiday}{The proportion of the days within the isoyearweek that are public holidays}
-#' \item{freeday}{The proportion of the days within the isoyearweek that are either public holidays or Saturday/Sunday}
-#' \item{workday}{1 minus freeday}
-#' }
-"norway_workdays_by_isoyearweek"
+setkey(days, isoyear, isoyearweek, mon, tue, wed, thu, fri, sat, sun)
+
+dates_by_isoyearweek <- days
+save(dates_by_isoyearweek, file = "data/dates_by_isoyearweek.rda", compress = "xz")
+
+
 
 gen_norway_workdays_by_date <- function(){
   # variables used by data.table
   is_current <- NULL
   year_end <- NULL
   is_holiday <- NULL
+  day_of_week <- NULL
+  mon_to_fri <- NULL
   #
   
   info <- readxl::read_excel(
@@ -81,4 +80,11 @@ gen_norway_workdays_by_isoyearweek <- function(){
   return(norway_workdays_by_isoyearweek)
 }
 
+# gen_norway_workdays_by_date ----
+nor_workdays_by_date <- gen_norway_workdays_by_date()
+save(nor_workdays_by_date, file = "data/nor_workdays_by_date.rda", compress = "xz")
+
+# gen_norway_workdays_by_isoyearweek ----
+nor_workdays_by_isoyearweek <- gen_norway_workdays_by_isoyearweek()
+save(nor_workdays_by_isoyearweek, file = "data/nor_workdays_by_isoyearweek.rda", compress = "xz")
 
