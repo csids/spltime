@@ -1,5 +1,5 @@
 Package: cstime
-Title: Date and time functions for public health purposes
+Title: Date and Time Functions for Public Health Purposes
 Version: 2022.11.22
 Authors@R: c(
   person("Chi", "Zhang", email = "andreachizhang@yahoo.com", role = c("aut", "cre"), 
