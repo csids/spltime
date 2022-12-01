@@ -13,7 +13,7 @@
 
 In addition, cstime provides calendar data for reference.
 
-Read the introduction vignette [here](http://www.csids.no/cstime/articles/cstime.html) or run `help(package="cstime")`.
+Read the introduction vignette [here](https://www.csids.no/cstime/articles/cstime.html) or run `help(package="cstime")`.
 
 ## csverse
 
