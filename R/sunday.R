@@ -6,7 +6,7 @@
 #' @param keep_latest_date keep_latest_date (later)
 #'
 #' @import data.table
-#' @export
+
 keep_sundays_and_latest_date_internal <- function(dates,
                                                   format = "Uke isoweek_c-1/isoweek_c",
                                                   keep_delete = TRUE,
@@ -82,8 +82,8 @@ keep_sundays_and_latest_date_internal <- function(dates,
 #' @param dates dates (later)
 #' @param format format (later)
 #' @param keep_delete keep_delete (later)
-#'
-#' @export
+#' @return Date with level: delete or not
+
 keep_sundays_and_latest_date <- function(dates, format = "Uke isoweek_c-1/isoweek_c", keep_delete = TRUE) {
   retval <- keep_sundays_and_latest_date_internal(
     dates = dates,
@@ -100,8 +100,8 @@ keep_sundays_and_latest_date <- function(dates, format = "Uke isoweek_c-1/isowee
 #' @param dates dates (later)
 #' @param format format (later)
 #' @param keep_delete keep_delete (later)
-#'
-#' @export
+#' @return Label: delete or not
+
 keep_sundays <- function(dates, format = "Uke isoweek_c-1/isoweek_c", keep_delete = TRUE) {
   retval <- keep_sundays_and_latest_date_internal(
     dates = dates,
@@ -112,4 +112,3 @@ keep_sundays <- function(dates, format = "Uke isoweek_c-1/isoweek_c", keep_delet
   return(retval)
 }
 
-# keep_sundays(dates = lubridate::today())

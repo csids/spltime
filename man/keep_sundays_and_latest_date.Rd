@@ -17,6 +17,9 @@ keep_sundays_and_latest_date(
 
 \item{keep_delete}{keep_delete (later)}
 }
+\value{
+Date with level: delete or not
+}
 \description{
 keep_sundays_and_latest_date
 }

@@ -9,6 +9,9 @@ isoyear_to_last_isoyearweek_c(x)
 \arguments{
 \item{x}{ISO year, e.g. 2020}
 }
+\value{
+ISO year-week in character, of the last ISO year
+}
 \description{
 Returns the last isoyearweek in the isoyear
 }

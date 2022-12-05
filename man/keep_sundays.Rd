@@ -13,6 +13,9 @@ keep_sundays(dates, format = "Uke isoweek_c-1/isoweek_c", keep_delete = TRUE)
 
 \item{keep_delete}{keep_delete (later)}
 }
+\value{
+Label: delete or not
+}
 \description{
 keep_sundays
 }

@@ -7,8 +7,14 @@
 seasonweek_to_isoweek_c(seasonweek)
 }
 \arguments{
-\item{seasonweek}{Season week in a year, between 1 and 52}
+\item{seasonweek}{Season week in a year (numeric), between 1 and 52}
+}
+\value{
+ISO week in character
 }
 \description{
 Season week to ISO week (character). Season week 1 is ISO week 30.
+}
+\examples{
+seasonweek_to_isoweek_c(31)
 }

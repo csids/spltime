@@ -9,8 +9,11 @@ isoyearweek_to_last_date(x)
 \arguments{
 \item{x}{ISO yearweek, e.g. "2020-19" for 19th week in 2020}
 }
+\value{
+Date of Sunday of that isoyearweek
+}
 \description{
-Returns the last date in the isoyearweek
+Returns the Sunday in the isoyearweek
 }
 \examples{
 isoyearweek_to_last_date(c("2019-19", "2020-01"))

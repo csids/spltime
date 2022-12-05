@@ -7,8 +7,14 @@
 isoweek_to_seasonweek_n(isoweek)
 }
 \arguments{
-\item{isoweek}{ISO week in a year, between 1 and 53. ISO week 53 is season week 23.5}
+\item{isoweek}{ISO week in a year (numeric), between 1 and 53. ISO week 53 is season week 23.5}
+}
+\value{
+Season week in numeric
 }
 \description{
 ISO week to season week (numeric). Season week 1 is natural week 30.
+}
+\examples{
+isoweek_to_seasonweek_n(31)
 }

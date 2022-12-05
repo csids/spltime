@@ -9,6 +9,9 @@ date_to_seasonweek_n(x)
 \arguments{
 \item{x}{date}
 }
+\value{
+Season week in numeric
+}
 \description{
 Date to season week.
 }

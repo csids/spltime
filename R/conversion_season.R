@@ -1,7 +1,10 @@
 #' ISO week to season week (numeric). Season week 1 is natural week 30.
 #'
-#' @param isoweek ISO week in a year, between 1 and 53. ISO week 53 is season week 23.5
+#' @param isoweek ISO week in a year (numeric), between 1 and 53. ISO week 53 is season week 23.5
+#' @return Season week in numeric
 #' @export
+#' @examples 
+#' isoweek_to_seasonweek_n(31)
 isoweek_to_seasonweek_n <- function(isoweek) {
   # take both char/n in input
 
@@ -22,6 +25,7 @@ isoweek_to_seasonweek_n <- function(isoweek) {
 #' ISO yearweek to season week (numeric). Season week 1 is natural week 30.
 #'
 #' @param x ISO yearweek
+#' @return Season week in numeric
 #' @examples
 #' isoyearweek_to_seasonweek_n(c("2021-01"))
 #' @export
@@ -32,8 +36,11 @@ isoyearweek_to_seasonweek_n <- function(x) {
 
 #' Season week to ISO week (character). Season week 1 is ISO week 30.
 #'
-#' @param seasonweek Season week in a year, between 1 and 52
+#' @param seasonweek Season week in a year (numeric), between 1 and 52
+#' @return ISO week in character
 #' @export
+#' @examples 
+#' seasonweek_to_isoweek_c(31)
 seasonweek_to_isoweek_c <- function(seasonweek) {
   # influenza week 1 (x) is real week 30
   if (max(seasonweek) > 52 | min(seasonweek) < 1) {
@@ -56,7 +63,10 @@ seasonweek_to_isoweek_c <- function(seasonweek) {
 #' Season week to ISO week (numeric). Season week 1 is ISO week 30.
 #'
 #' @param seasonweek Season week in a year, between 1 and 52
+#' @return ISO week in numeric
 #' @export
+#' @examples 
+#' seasonweek_to_isoweek_n(31)
 seasonweek_to_isoweek_n <- function(seasonweek) {
   # influenza week 1 (x) is real week 30
   if (max(seasonweek) > 52 | min(seasonweek) < 1) {
@@ -72,7 +82,8 @@ seasonweek_to_isoweek_n <- function(seasonweek) {
 
 #' ISO yearweek to season.
 #'
-#' @param x isoyearweek
+#' @param x isoyearweek, connected with '-'
+#' @return Season, e.g. 2020/2021
 #' @examples
 #' isoyearweek_to_season_c(c("2021-01", "2021-50"))
 #' @export
@@ -88,6 +99,7 @@ isoyearweek_to_season_c <- function(x) {
 #' Date to season.
 #'
 #' @param x date
+#' @return Season, e.g. 2020/2021
 #' @examples
 #' date_to_season_c(c("2021-01-01", "2021-12-01"))
 #' @export
@@ -98,6 +110,7 @@ date_to_season_c <- function(x) {
 #' Date to season week.
 #'
 #' @param x date
+#' @return Season week in numeric
 #' @examples
 #' date_to_seasonweek_n(c("2021-01-01", "2021-12-01"))
 #' @export

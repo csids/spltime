@@ -9,6 +9,9 @@ date_to_season_c(x)
 \arguments{
 \item{x}{date}
 }
+\value{
+Season, e.g. 2020/2021
+}
 \description{
 Date to season.
 }

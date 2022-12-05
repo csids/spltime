@@ -9,7 +9,7 @@ Authors@R: c(
     comment = c(ORCID = "0000-0002-6747-1726")
   )
   )
-Description: Provides easy and consistent time conversion.
+Description: Provides easy and consistent time conversion for public health purposes. The time conversion functions provided here are between date, ISO week, ISO yearweek, ISO year, calendar month/year, season, season week.  
 License: MIT + file LICENSE
 URL: https://www.csids.no/cstime/, https://github.com/csids/cstime
 BugReports: https://github.com/csids/cstime/issues

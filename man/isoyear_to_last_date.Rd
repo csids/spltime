@@ -2,15 +2,18 @@
 % Please edit documentation in R/conversion_date_isoweek_isoyear.R
 \name{isoyear_to_last_date}
 \alias{isoyear_to_last_date}
-\title{Last date in ISO year}
+\title{Last Sunday in ISO year}
 \usage{
 isoyear_to_last_date(x)
 }
 \arguments{
 \item{x}{ISO year, e.g. 2020}
 }
+\value{
+Date of the Sunday, for the last week in the isoyear
+}
 \description{
-Returns the last date in the isoyear
+Returns the last Sunday in the isoyear
 }
 \examples{
 isoyear_to_last_date(c(2019, 2019, 2020, 2021))

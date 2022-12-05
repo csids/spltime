@@ -7,7 +7,10 @@
 isoyearweek_to_season_c(x)
 }
 \arguments{
-\item{x}{isoyearweek}
+\item{x}{isoyearweek, connected with '-'}
+}
+\value{
+Season, e.g. 2020/2021
 }
 \description{
 ISO yearweek to season.

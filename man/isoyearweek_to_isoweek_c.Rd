@@ -9,6 +9,12 @@ isoyearweek_to_isoweek_c(yrwk)
 \arguments{
 \item{yrwk}{Year-week, e.g. "2020-19" for 19th week in 2020}
 }
+\value{
+ISO week in character
+}
 \description{
 This function breaks the string connected with '-' into year/week
+}
+\examples{
+isoyearweek_to_isoweek_c('2020-19')
 }

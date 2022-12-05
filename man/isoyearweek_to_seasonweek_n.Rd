@@ -9,6 +9,9 @@ isoyearweek_to_seasonweek_n(x)
 \arguments{
 \item{x}{ISO yearweek}
 }
+\value{
+Season week in numeric
+}
 \description{
 ISO yearweek to season week (numeric). Season week 1 is natural week 30.
 }
