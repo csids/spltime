@@ -1,7 +1,3 @@
-#
-# date vs iso ====
-#
-
 #' ISO year (character) from Date object
 #'
 #' @param x a Date object or string, in the form of 'yyyy-mm-dd'
@@ -13,6 +9,9 @@
 #' date_to_isoyear_c("2021-08-11")
 #' date_to_isoyear_c(lubridate::today())
 date_to_isoyear_c <- function(x = lubridate::today()) {
+  csutil::apply_fn_via_hash_table(x, date_to_isoyear_c_internal)
+}
+date_to_isoyear_c_internal <- function(x) {
   yr <- format.Date(x, "%G")
   return(yr)
 }
@@ -28,6 +27,9 @@ date_to_isoyear_c <- function(x = lubridate::today()) {
 #' date_to_isoyear_c("2021-08-11")
 #' date_to_isoyear_c(lubridate::today())
 date_to_isoweek_c <- function(x = lubridate::today()) {
+  csutil::apply_fn_via_hash_table(x, date_to_isoweek_c_internal)
+}
+date_to_isoweek_c_internal <- function(x) {
   # wk <- data.table::isoweek(date)
   # wk <- formatC(wk, flag = "0", width = 2)
   wk <- format.Date(x, "%V")
@@ -45,6 +47,9 @@ date_to_isoweek_c <- function(x = lubridate::today()) {
 #' date_to_isoyearweek_c("2021-08-11")
 #' date_to_isoyearweek_c(lubridate::today())
 date_to_isoyearweek_c <- function(x = lubridate::today()) {
+  csutil::apply_fn_via_hash_table(x, date_to_isoyearweek_c_internal)
+}
+date_to_isoyearweek_c_internal <- function(x) {
   return(paste0(date_to_isoyear_c(x), "-", date_to_isoweek_c(x)))
 }
 
@@ -59,6 +64,9 @@ date_to_isoyearweek_c <- function(x = lubridate::today()) {
 #' date_to_isoyear_n("2021-08-11")
 #' date_to_isoyear_n(lubridate::today())
 date_to_isoyear_n <- function(x = lubridate::today()) {
+  csutil::apply_fn_via_hash_table(x, date_to_isoyear_n_internal)
+}
+date_to_isoyear_n_internal <- function(x) {
   yr <- as.integer(date_to_isoyear_c(x))
   return(yr)
 }
@@ -74,6 +82,9 @@ date_to_isoyear_n <- function(x = lubridate::today()) {
 #' date_to_isoweek_n("2021-08-11")
 #' date_to_isoweek_n(lubridate::today())
 date_to_isoweek_n <- function(x = lubridate::today()) {
+  csutil::apply_fn_via_hash_table(x, date_to_isoweek_n_internal)
+}
+date_to_isoweek_n_internal <- function(x) {
   wk <- as.integer(date_to_isoweek_c(x))
   return(wk)
 }
@@ -92,6 +103,9 @@ date_to_isoweek_n <- function(x = lubridate::today()) {
 #' @examples 
 #' isoyearweek_to_isoyear_n('2020-10')
 isoyearweek_to_isoyear_n <- function(yrwk) {
+  csutil::apply_fn_via_hash_table(yrwk, isoyearweek_to_isoyear_n_internal)
+}
+isoyearweek_to_isoyear_n_internal <- function(yrwk) {
   year_n <- stringr::str_split(yrwk, pattern = "-") %>%
     purrr::map_chr(., function(x) {
       x[1]
@@ -109,6 +123,9 @@ isoyearweek_to_isoyear_n <- function(yrwk) {
 #' @examples 
 #' isoyearweek_to_isoyear_c('2020-10')
 isoyearweek_to_isoyear_c <- function(yrwk) {
+  csutil::apply_fn_via_hash_table(yrwk, isoyearweek_to_isoyear_c_internal)
+}
+isoyearweek_to_isoyear_c_internal <- function(yrwk) {
   year_c <- stringr::str_split(yrwk, pattern = "-") %>%
     purrr::map_chr(., function(x) {
       x[1]
@@ -125,6 +142,9 @@ isoyearweek_to_isoyear_c <- function(yrwk) {
 #' @examples 
 #' isoyearweek_to_isoweek_n('2020-19')
 isoyearweek_to_isoweek_n <- function(yrwk) {
+  csutil::apply_fn_via_hash_table(yrwk, isoyearweek_to_isoweek_n_internal)
+}
+isoyearweek_to_isoweek_n_internal <- function(yrwk) {
   week_n <- stringr::str_split(yrwk, pattern = "-") %>%
     purrr::map_chr(., function(x) {
       x[2]
@@ -142,6 +162,9 @@ isoyearweek_to_isoweek_n <- function(yrwk) {
 #' @examples 
 #' isoyearweek_to_isoweek_c('2020-19')
 isoyearweek_to_isoweek_c <- function(yrwk) {
+  csutil::apply_fn_via_hash_table(yrwk, isoyearweek_to_isoweek_c_internal)
+}
+isoyearweek_to_isoweek_c_internal <- function(yrwk) {
   week_c <- stringr::str_split(yrwk, pattern = "-") %>%
     purrr::map_chr(., function(x) {
       x[2]
@@ -162,10 +185,13 @@ isoyearweek_to_isoweek_c <- function(yrwk) {
 #' isoyear_to_last_isoyearweek_c(c(2019, 2019, 2020, 2021))
 #' @export
 isoyear_to_last_isoyearweek_c <- function(x) {
+  csutil::apply_fn_via_hash_table(yrwk, isoyear_to_last_isoyearweek_c_internal)
+}
+isoyear_to_last_isoyearweek_c_internal <- function(x) {
   isoyearweek <- NULL
   x <- as.numeric(x)
   retval <- data.table(isoyear = x)[cstime::dates_by_isoyearweek, on = "isoyear", isoyearweek := isoyearweek]$isoyearweek
-
+  
   return(retval)
 }
 
@@ -178,6 +204,9 @@ isoyear_to_last_isoyearweek_c <- function(x) {
 #' isoyear_to_last_isoweek_n(c(2019, 2019, 2020, 2021))
 #' @export
 isoyear_to_last_isoweek_n <- function(x) {
+  csutil::apply_fn_via_hash_table(x, isoyear_to_last_isoweek_n_internal)
+}
+isoyear_to_last_isoweek_n_internal <- function(x) {
   isoyearweek_to_isoweek_n(isoyear_to_last_isoyearweek_c(x))
 }
 
@@ -190,10 +219,13 @@ isoyear_to_last_isoweek_n <- function(x) {
 #' isoyear_to_last_date(c(2019, 2019, 2020, 2021))
 #' @export
 isoyear_to_last_date <- function(x) {
+  csutil::apply_fn_via_hash_table(x, isoyear_to_last_date_internal)
+}
+isoyear_to_last_date_internal <- function(x) {
   sun <- NULL
   x <- as.numeric(x)
   retval <- data.table(isoyear = x)[cstime::dates_by_isoyearweek, on = "isoyear", sun := sun]$sun
-
+  
   return(retval)
 }
 
@@ -206,8 +238,11 @@ isoyear_to_last_date <- function(x) {
 #' isoyearweek_to_last_date(c("2019-19", "2020-01"))
 #' @export
 isoyearweek_to_last_date <- function(x) {
+  csutil::apply_fn_via_hash_table(x, isoyearweek_to_last_date_internal)
+}
+isoyearweek_to_last_date_internal <- function(x) {
   sun <- NULL
   retval <- data.table(isoyearweek = x)[cstime::dates_by_isoyearweek, on = "isoyearweek", sun := sun]$sun
-
+  
   return(retval)
 }

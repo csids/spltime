@@ -6,19 +6,22 @@
 #' @examples 
 #' isoweek_to_seasonweek_n(31)
 isoweek_to_seasonweek_n <- function(isoweek) {
+  csutil::apply_fn_via_hash_table(isoweek, isoweek_to_seasonweek_n_internal)
+}
+isoweek_to_seasonweek_n_internal <- function(isoweek) {
   # take both char/n in input
-
+  
   # real week 30 is the start of season, week 1
   # original: fhi::x(20)
   if (max(isoweek) > 53 | min(isoweek) < 1) {
     stop("ISO week needs to be between 1 to 53")
   }
-
+  
   retval <- isoweek
   retval[isoweek >= 30] <- isoweek[isoweek >= 30] - 29
   retval[isoweek < 30] <- isoweek[isoweek < 30] + 23
   retval[isoweek == 53] <- 23.5
-
+  
   return(retval)
 }
 
@@ -42,23 +45,23 @@ isoyearweek_to_seasonweek_n <- function(x) {
 #' @examples 
 #' seasonweek_to_isoweek_c(31)
 seasonweek_to_isoweek_c <- function(seasonweek) {
+  csutil::apply_fn_via_hash_table(seasonweek, seasonweek_to_isoweek_c_internal)
+}
+seasonweek_to_isoweek_c_internal <- function(seasonweek) {
   # influenza week 1 (x) is real week 30
   if (max(seasonweek) > 52 | min(seasonweek) < 1) {
     stop("seasonweek needs to be between 1 to 52, or 23.5")
   }
-
+  
   retval <- seasonweek
   retval[seasonweek <= 23] <- seasonweek[seasonweek <= 23] + 29
   retval[seasonweek > 23] <- seasonweek[seasonweek > 23] - 23
   retval[seasonweek == 23.5] <- 53
   # return double digit: 01, 09, 10, 11
   retval <- formatC(retval, width = 2, flag = "0")
-
+  
   return(retval)
 }
-
-
-
 
 #' Season week to ISO week (numeric). Season week 1 is ISO week 30.
 #'
@@ -68,11 +71,14 @@ seasonweek_to_isoweek_c <- function(seasonweek) {
 #' @examples 
 #' seasonweek_to_isoweek_n(31)
 seasonweek_to_isoweek_n <- function(seasonweek) {
+  csutil::apply_fn_via_hash_table(seasonweek, seasonweek_to_isoweek_n_internal)
+}
+seasonweek_to_isoweek_n_internal <- function(seasonweek) {
   # influenza week 1 (x) is real week 30
   if (max(seasonweek) > 52 | min(seasonweek) < 1) {
     stop("seasonweek needs to be between 1 to 52, or 23.5")
   }
-
+  
   retval <- seasonweek
   retval[seasonweek <= 23] <- seasonweek[seasonweek <= 23] + 29
   retval[seasonweek > 23] <- seasonweek[seasonweek > 23] - 23
@@ -88,6 +94,9 @@ seasonweek_to_isoweek_n <- function(seasonweek) {
 #' isoyearweek_to_season_c(c("2021-01", "2021-50"))
 #' @export
 isoyearweek_to_season_c <- function(x) {
+  csutil::apply_fn_via_hash_table(x, isoyearweek_to_season_c_internal)
+}
+isoyearweek_to_season_c_internal <- function(x) {
   isoweeks <- isoyearweek_to_isoweek_n(x)
   isoyears <- isoyearweek_to_isoyear_n(x)
   dplyr::case_when(
