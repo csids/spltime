@@ -185,7 +185,7 @@ isoyearweek_to_isoweek_c_internal <- function(yrwk) {
 #' isoyear_to_last_isoyearweek_c(c(2019, 2019, 2020, 2021))
 #' @export
 isoyear_to_last_isoyearweek_c <- function(x) {
-  csutil::apply_fn_via_hash_table(yrwk, isoyear_to_last_isoyearweek_c_internal)
+  csutil::apply_fn_via_hash_table(x, isoyear_to_last_isoyearweek_c_internal)
 }
 isoyear_to_last_isoyearweek_c_internal <- function(x) {
   isoyearweek <- NULL
@@ -204,9 +204,6 @@ isoyear_to_last_isoyearweek_c_internal <- function(x) {
 #' isoyear_to_last_isoweek_n(c(2019, 2019, 2020, 2021))
 #' @export
 isoyear_to_last_isoweek_n <- function(x) {
-  csutil::apply_fn_via_hash_table(x, isoyear_to_last_isoweek_n_internal)
-}
-isoyear_to_last_isoweek_n_internal <- function(x) {
   isoyearweek_to_isoweek_n(isoyear_to_last_isoyearweek_c(x))
 }
 
