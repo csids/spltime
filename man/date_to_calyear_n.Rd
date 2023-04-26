@@ -2,11 +2,14 @@
 % Please edit documentation in R/conversion_date_calmonth_calyear.R
 \name{date_to_calyear_n}
 \alias{date_to_calyear_n}
+\alias{date_to_calyear_n.default}
 \alias{date_to_calyear_n.character}
 \alias{date_to_calyear_n.Date}
 \title{Date -> calyear (numeric)}
 \usage{
 date_to_calyear_n(x = lubridate::today())
+
+\method{date_to_calyear_n}{default}(x)
 
 \method{date_to_calyear_n}{character}(x = lubridate::today())
 

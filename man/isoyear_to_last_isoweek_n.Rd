@@ -2,11 +2,14 @@
 % Please edit documentation in R/conversion_date_isoweek_isoyear.R
 \name{isoyear_to_last_isoweek_n}
 \alias{isoyear_to_last_isoweek_n}
+\alias{isoyear_to_last_isoweek_n.default}
 \alias{isoyear_to_last_isoweek_n.character}
 \alias{isoyear_to_last_isoweek_n.numeric}
 \title{Last ISO week (numeric) in ISO year}
 \usage{
 isoyear_to_last_isoweek_n(x)
+
+\method{isoyear_to_last_isoweek_n}{default}(x)
 
 \method{isoyear_to_last_isoweek_n}{character}(x)
 

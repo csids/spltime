@@ -2,10 +2,13 @@
 % Please edit documentation in R/conversion_season.R
 \name{seasonweek_to_isoweek_n}
 \alias{seasonweek_to_isoweek_n}
+\alias{seasonweek_to_isoweek_n.default}
 \alias{seasonweek_to_isoweek_n.numeric}
 \title{Season week to ISO week (numeric). Season week 1 is ISO week 30.}
 \usage{
 seasonweek_to_isoweek_n(x)
+
+\method{seasonweek_to_isoweek_n}{default}(x)
 
 \method{seasonweek_to_isoweek_n}{numeric}(x)
 }

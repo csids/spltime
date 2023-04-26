@@ -12,6 +12,12 @@ isoweek_to_seasonweek_n <- function(x) {
 
 #' @rdname isoweek_to_seasonweek_n
 #' @export
+isoweek_to_seasonweek_n.default <- function(x) {
+  rep(NA_integer_, length(x))
+}
+
+#' @rdname isoweek_to_seasonweek_n
+#' @export
 isoweek_to_seasonweek_n.character <- function(x) {
   conversions_isoweek_c_to[.(x)]$seasonweek_n
 }
@@ -47,6 +53,12 @@ seasonweek_to_isoweek_c <- function(x) {
 
 #' @rdname seasonweek_to_isoweek_c
 #' @export
+seasonweek_to_isoweek_c.default <- function(x) {
+  rep(NA_character_, length(x))
+}
+
+#' @rdname seasonweek_to_isoweek_c
+#' @export
 seasonweek_to_isoweek_c.numeric <- function(x) {
   conversions_seasonweek_to[.(x)]$isoweek_c
 }
@@ -65,6 +77,12 @@ seasonweek_to_isoweek_n <- function(x) {
 
 #' @rdname seasonweek_to_isoweek_n
 #' @export
+seasonweek_to_isoweek_n.default <- function(x) {
+  rep(NA_integer_, length(x))
+}
+
+#' @rdname seasonweek_to_isoweek_n
+#' @export
 seasonweek_to_isoweek_n.numeric <- function(x) {
   conversions_seasonweek_to[.(x)]$isoweek_n
 }
@@ -79,6 +97,12 @@ seasonweek_to_isoweek_n.numeric <- function(x) {
 #' @export
 isoyearweek_to_season_c <- function(x) {
   UseMethod("isoyearweek_to_season_c", x)
+}
+
+#' @rdname isoyearweek_to_season_c
+#' @export
+isoyearweek_to_season_c.default <- function(x) {
+  rep(NA_integer_, length(x))
 }
 
 #' @rdname isoyearweek_to_season_c

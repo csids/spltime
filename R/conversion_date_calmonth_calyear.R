@@ -18,6 +18,12 @@ date_to_calyear_c <- function(x = lubridate::today()) {
 
 #' @rdname date_to_calyear_c
 #' @export
+date_to_calyear_c.default <- function(x) {
+  rep(NA_character_, length(x))
+}
+
+#' @rdname date_to_calyear_c
+#' @export
 date_to_calyear_c.character <- function(x = lubridate::today()) {
   conversions_date_c_to[.(x)]$calyear_c
 }
@@ -42,6 +48,12 @@ date_to_calyear_c.Date <- function(x = lubridate::today()) {
 #' date_to_calyear_n(lubridate::today())
 date_to_calyear_n <- function(x = lubridate::today()) {
   UseMethod("date_to_calyear_n", x)
+}
+
+#' @rdname date_to_calyear_n
+#' @export
+date_to_calyear_n.default <- function(x) {
+  rep(NA_integer_, length(x))
 }
 
 #' @rdname date_to_calyear_n
@@ -73,6 +85,12 @@ date_to_calmonth_c <- function(x = lubridate::today()) {
 
 #' @rdname date_to_calmonth_c
 #' @export
+date_to_calmonth_c.default <- function(x) {
+  rep(NA_character_, length(x))
+}
+
+#' @rdname date_to_calmonth_c
+#' @export
 date_to_calmonth_c.character <- function(x = lubridate::today()) {
   conversions_date_c_to[.(x)]$calmonth_c
 }
@@ -100,6 +118,12 @@ date_to_calmonth_n <- function(x = lubridate::today()) {
 
 #' @rdname date_to_calmonth_n
 #' @export
+date_to_calmonth_n.default <- function(x) {
+  rep(NA_integer_, length(x))
+}
+
+#' @rdname date_to_calmonth_n
+#' @export
 date_to_calmonth_n.character <- function(x = lubridate::today()) {
   conversions_date_c_to[.(x)]$calmonth_n
 }
@@ -123,6 +147,12 @@ date_to_calmonth_n.Date <- function(x = lubridate::today()) {
 #' date_to_calyearmonth_c(lubridate::today())
 date_to_calyearmonth_c <- function(x = lubridate::today()) {
   UseMethod("date_to_calyearmonth_c", x)
+}
+
+#' @rdname date_to_calyearmonth_c
+#' @export
+date_to_calyearmonth_c.default <- function(x) {
+  rep(NA_character_, length(x))
 }
 
 #' @rdname date_to_calyearmonth_c

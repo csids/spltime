@@ -2,10 +2,13 @@
 % Please edit documentation in R/conversion_date_isoweek_isoyear.R
 \name{isoyearweek_to_isoyear_c}
 \alias{isoyearweek_to_isoyear_c}
+\alias{isoyearweek_to_isoyear_c.default}
 \alias{isoyearweek_to_isoyear_c.character}
 \title{ISO yearweek to year (character)}
 \usage{
 isoyearweek_to_isoyear_c(x)
+
+\method{isoyearweek_to_isoyear_c}{default}(x)
 
 \method{isoyearweek_to_isoyear_c}{character}(x)
 }

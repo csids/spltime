@@ -2,11 +2,14 @@
 % Please edit documentation in R/conversion_season.R
 \name{isoweek_to_seasonweek_n}
 \alias{isoweek_to_seasonweek_n}
+\alias{isoweek_to_seasonweek_n.default}
 \alias{isoweek_to_seasonweek_n.character}
 \alias{isoweek_to_seasonweek_n.numeric}
 \title{ISO week to season week (numeric). Season week 1 is natural week 30.}
 \usage{
 isoweek_to_seasonweek_n(x)
+
+\method{isoweek_to_seasonweek_n}{default}(x)
 
 \method{isoweek_to_seasonweek_n}{character}(x)
 

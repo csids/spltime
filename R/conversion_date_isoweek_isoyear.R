@@ -14,6 +14,12 @@ date_to_isoyear_c <- function(x = lubridate::today()) {
 
 #' @rdname date_to_isoyear_c
 #' @export
+date_to_isoyear_c.default <- function(x) {
+  rep(NA_character_, length(x))
+}
+
+#' @rdname date_to_isoyear_c
+#' @export
 date_to_isoyear_c.character <- function(x = lubridate::today()) {
   conversions_date_c_to[.(x)]$isoyear_c
 }
@@ -36,6 +42,12 @@ date_to_isoyear_c.Date <- function(x = lubridate::today()) {
 #' date_to_isoyear_n(lubridate::today())
 date_to_isoyear_n <- function(x = lubridate::today()) {
   UseMethod("date_to_isoyear_n", x)
+}
+
+#' @rdname date_to_isoyear_n
+#' @export
+date_to_isoyear_n.default <- function(x) {
+  rep(NA_integer_, length(x))
 }
 
 #' @rdname date_to_isoyear_n
@@ -66,6 +78,12 @@ date_to_isoweek_c <- function(x = lubridate::today()) {
 
 #' @rdname date_to_isoweek_c
 #' @export
+date_to_isoweek_c.default <- function(x) {
+  rep(NA_character_, length(x))
+}
+
+#' @rdname date_to_isoweek_c
+#' @export
 date_to_isoweek_c.character <- function(x = lubridate::today()) {
   conversions_date_c_to[.(x)]$isoweek_c
 }
@@ -92,6 +110,12 @@ date_to_isoweek_n <- function(x = lubridate::today()) {
 
 #' @rdname date_to_isoweek_n
 #' @export
+date_to_isoweek_n.default <- function(x) {
+  rep(NA_integer_, length(x))
+}
+
+#' @rdname date_to_isoweek_n
+#' @export
 date_to_isoweek_n.character <- function(x = lubridate::today()) {
   conversions_date_c_to[.(x)]$isoweek_n
 }
@@ -114,6 +138,12 @@ date_to_isoweek_n.Date <- function(x = lubridate::today()) {
 #' date_to_isoyearweek_c(lubridate::today())
 date_to_isoyearweek_c <- function(x = lubridate::today()) {
   UseMethod("date_to_isoyearweek_c", x)
+}
+
+#' @rdname date_to_isoyearweek_c
+#' @export
+date_to_isoyearweek_c.default <- function(x) {
+  rep(NA_character_, length(x))
 }
 
 #' @rdname date_to_isoyearweek_c
@@ -148,6 +178,12 @@ isoyearweek_to_isoyear_n <- function(x) {
 
 #' @rdname isoyearweek_to_isoyear_n
 #' @export
+isoyearweek_to_isoyear_n.default <- function(x) {
+  rep(NA_integer_, length(x))
+}
+
+#' @rdname isoyearweek_to_isoyear_n
+#' @export
 isoyearweek_to_isoyear_n.character <- function(x) {
   conversions_isoyearweek_to[.(x)]$isoyear_n
 }
@@ -163,6 +199,12 @@ isoyearweek_to_isoyear_n.character <- function(x) {
 #' isoyearweek_to_isoyear_c('2020-10')
 isoyearweek_to_isoyear_c <- function(x) {
   UseMethod("isoyearweek_to_isoyear_c", x)
+}
+
+#' @rdname isoyearweek_to_isoyear_c
+#' @export
+isoyearweek_to_isoyear_c.default <- function(x) {
+  rep(NA_character_, length(x))
 }
 
 #' @rdname isoyearweek_to_isoyear_c
@@ -186,6 +228,12 @@ isoyearweek_to_isoweek_n <- function(x) {
 
 #' @rdname isoyearweek_to_isoweek_n
 #' @export
+isoyearweek_to_isoweek_n.default <- function(x) {
+  rep(NA_integer_, length(x))
+}
+
+#' @rdname isoyearweek_to_isoweek_n
+#' @export
 isoyearweek_to_isoweek_n.character <- function(x) {
   conversions_isoyearweek_to[.(x)]$isoweek_n
 }
@@ -201,6 +249,12 @@ isoyearweek_to_isoweek_n.character <- function(x) {
 #' isoyearweek_to_isoweek_c('2020-19')
 isoyearweek_to_isoweek_c <- function(x) {
   UseMethod("isoyearweek_to_isoweek_c", x)
+}
+
+#' @rdname isoyearweek_to_isoweek_c
+#' @export
+isoyearweek_to_isoweek_c.default <- function(x) {
+  rep(NA_character_, length(x))
 }
 
 #' @rdname isoyearweek_to_isoweek_c
@@ -224,6 +278,12 @@ isoyearweek_to_isoweek_c.character <- function(x) {
 #' @export
 isoyear_to_last_isoyearweek_c <- function(x) {
   UseMethod("isoyear_to_last_isoyearweek_c", x)
+}
+
+#' @rdname isoyear_to_last_isoyearweek_c
+#' @export
+isoyear_to_last_isoyearweek_c.default <- function(x) {
+  rep(NA_character_, length(x))
 }
 
 #' @rdname isoyear_to_last_isoyearweek_c
@@ -253,6 +313,12 @@ isoyear_to_last_isoweek_n <- function(x) {
 
 #' @rdname isoyear_to_last_isoweek_n
 #' @export
+isoyear_to_last_isoweek_n.default <- function(x) {
+  rep(NA_integer_, length(x))
+}
+
+#' @rdname isoyear_to_last_isoweek_n
+#' @export
 isoyear_to_last_isoweek_n.character <- function(x) {
   conversions_isoyear_c_to[.(x)]$last_isoweek_n
 }
@@ -278,6 +344,12 @@ isoyear_to_last_date <- function(x) {
 
 #' @rdname isoyear_to_last_date
 #' @export
+isoyear_to_last_date.default <- function(x) {
+  rep(as.Date(NA), length(x))
+}
+
+#' @rdname isoyear_to_last_date
+#' @export
 isoyear_to_last_date.character <- function(x) {
   conversions_isoyear_c_to[.(x)]$last_date
 }
@@ -299,6 +371,12 @@ isoyear_to_last_date.numeric <- function(x) {
 #' @export
 isoyearweek_to_last_date <- function(x) {
   UseMethod("isoyearweek_to_last_date", x)
+}
+
+#' @rdname isoyearweek_to_last_date
+#' @export
+isoyearweek_to_last_date.default <- function(x) {
+  rep(as.Date(NA), length(x))
 }
 
 #' @rdname isoyearweek_to_last_date

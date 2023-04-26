@@ -2,11 +2,14 @@
 % Please edit documentation in R/conversion_date_isoweek_isoyear.R
 \name{date_to_isoweek_c}
 \alias{date_to_isoweek_c}
+\alias{date_to_isoweek_c.default}
 \alias{date_to_isoweek_c.character}
 \alias{date_to_isoweek_c.Date}
 \title{ISO week (character) from Date object}
 \usage{
 date_to_isoweek_c(x = lubridate::today())
+
+\method{date_to_isoweek_c}{default}(x)
 
 \method{date_to_isoweek_c}{character}(x = lubridate::today())
 

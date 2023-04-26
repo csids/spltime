@@ -2,11 +2,14 @@
 % Please edit documentation in R/conversion_date_isoweek_isoyear.R
 \name{date_to_isoyear_n}
 \alias{date_to_isoyear_n}
+\alias{date_to_isoyear_n.default}
 \alias{date_to_isoyear_n.character}
 \alias{date_to_isoyear_n.Date}
 \title{ISO year (numeric) from Date object}
 \usage{
 date_to_isoyear_n(x = lubridate::today())
+
+\method{date_to_isoyear_n}{default}(x)
 
 \method{date_to_isoyear_n}{character}(x = lubridate::today())
 

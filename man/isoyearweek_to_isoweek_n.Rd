@@ -2,10 +2,13 @@
 % Please edit documentation in R/conversion_date_isoweek_isoyear.R
 \name{isoyearweek_to_isoweek_n}
 \alias{isoyearweek_to_isoweek_n}
+\alias{isoyearweek_to_isoweek_n.default}
 \alias{isoyearweek_to_isoweek_n.character}
 \title{ISO yearweek to week (numeric)}
 \usage{
 isoyearweek_to_isoweek_n(x)
+
+\method{isoyearweek_to_isoweek_n}{default}(x)
 
 \method{isoyearweek_to_isoweek_n}{character}(x)
 }

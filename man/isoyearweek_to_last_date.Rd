@@ -2,10 +2,13 @@
 % Please edit documentation in R/conversion_date_isoweek_isoyear.R
 \name{isoyearweek_to_last_date}
 \alias{isoyearweek_to_last_date}
+\alias{isoyearweek_to_last_date.default}
 \alias{isoyearweek_to_last_date.character}
 \title{Last date in ISO yearweek}
 \usage{
 isoyearweek_to_last_date(x)
+
+\method{isoyearweek_to_last_date}{default}(x)
 
 \method{isoyearweek_to_last_date}{character}(x)
 }
