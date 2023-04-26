@@ -2,12 +2,15 @@
 % Please edit documentation in R/conversion_date_isoweek_isoyear.R
 \name{isoyearweek_to_isoweek_c}
 \alias{isoyearweek_to_isoweek_c}
+\alias{isoyearweek_to_isoweek_c.character}
 \title{ISO yearweek to week (character)}
 \usage{
-isoyearweek_to_isoweek_c(yrwk)
+isoyearweek_to_isoweek_c(x)
+
+\method{isoyearweek_to_isoweek_c}{character}(x)
 }
 \arguments{
-\item{yrwk}{Year-week, e.g. "2020-19" for 19th week in 2020}
+\item{x}{Year-week, e.g. "2020-19" for 19th week in 2020}
 }
 \value{
 ISO week in character

@@ -2,9 +2,12 @@
 % Please edit documentation in R/conversion_season.R
 \name{isoyearweek_to_season_c}
 \alias{isoyearweek_to_season_c}
+\alias{isoyearweek_to_season_c.character}
 \title{ISO yearweek to season.}
 \usage{
 isoyearweek_to_season_c(x)
+
+\method{isoyearweek_to_season_c}{character}(x)
 }
 \arguments{
 \item{x}{isoyearweek, connected with '-'}

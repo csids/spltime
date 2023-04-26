@@ -7,36 +7,53 @@
 #' @param x a Date object or string, in the form of 'yyyy-mm-dd'
 #'
 #' @return ISO year in character
+#' @rdname date_to_calyear_c
 #' @export
-#'
 #' @examples
 #' date_to_calyear_c("2021-08-11")
 #' date_to_calyear_c(lubridate::today())
 date_to_calyear_c <- function(x = lubridate::today()) {
-  csutil::apply_fn_via_hash_table(x, date_to_calyear_c_internal)
+  UseMethod("date_to_calyear_c", x)
 }
-date_to_calyear_c_internal <- function(x = lubridate::today()) {
-  yr <- format.Date(x, "%Y")
-  return(yr)
+
+#' @rdname date_to_calyear_c
+#' @export
+date_to_calyear_c.character <- function(x = lubridate::today()) {
+  conversions_date_c_to[.(x)]$calyear_c
 }
+
+#' @rdname date_to_calyear_c
+#' @export
+date_to_calyear_c.Date <- function(x = lubridate::today()) {
+  conversions_date_to[.(x)]$calyear_c
+}
+
 
 #' Date -> calyear (numeric)
 #'
 #' @param x a Date object or string, in the form of 'yyyy-mm-dd'
 #'
 #' @return ISO year in character
+#' @rdname date_to_calyear_n
 #' @export
 #'
 #' @examples
 #' date_to_calyear_n("2021-08-11")
 #' date_to_calyear_n(lubridate::today())
 date_to_calyear_n <- function(x = lubridate::today()) {
-  csutil::apply_fn_via_hash_table(x, date_to_calyear_n_internal)
+  UseMethod("date_to_calyear_n", x)
 }
-date_to_calyear_n_internal <- function(x) {
-  yr <- format.Date(x, "%Y")
-  yr <- as.integer(yr)
-  return(yr)
+
+#' @rdname date_to_calyear_n
+#' @export
+date_to_calyear_n.character <- function(x = lubridate::today()) {
+  conversions_date_c_to[.(x)]$calyear_n
+}
+
+#' @rdname date_to_calyear_n
+#' @export
+date_to_calyear_n.Date <- function(x = lubridate::today()) {
+  conversions_date_to[.(x)]$calyear_n
 }
 
 #' Date -> calmonth (character)
@@ -44,19 +61,26 @@ date_to_calyear_n_internal <- function(x) {
 #' @param x a Date object or string, in the form of 'yyyy-mm-dd'
 #'
 #' @return calmonth ("XX")
+#' @rdname date_to_calmonth_c
 #' @export
 #'
 #' @examples
 #' date_to_calmonth_c("2021-08-11")
 #' date_to_calmonth_c(lubridate::today())
 date_to_calmonth_c <- function(x = lubridate::today()) {
-  csutil::apply_fn_via_hash_table(x, date_to_calmonth_c_internal)
+  UseMethod("date_to_calmonth_c", x)
 }
-date_to_calmonth_c_internal <- function(x) {
-  # wk <- data.table::isoweek(date)
-  # wk <- formatC(wk, flag = "0", width = 2)
-  wk <- format.Date(x, "%m")
-  return(wk)
+
+#' @rdname date_to_calmonth_c
+#' @export
+date_to_calmonth_c.character <- function(x = lubridate::today()) {
+  conversions_date_c_to[.(x)]$calmonth_c
+}
+
+#' @rdname date_to_calmonth_c
+#' @export
+date_to_calmonth_c.Date <- function(x = lubridate::today()) {
+  conversions_date_to[.(x)]$calmonth_c
 }
 
 #' Date -> calmonth (numeric)
@@ -64,20 +88,26 @@ date_to_calmonth_c_internal <- function(x) {
 #' @param x a Date object or string, in the form of 'yyyy-mm-dd'
 #'
 #' @return calmonth
+#' @rdname date_to_calmonth_n
 #' @export
 #'
 #' @examples
 #' date_to_calmonth_n("2021-08-11")
 #' date_to_calmonth_n(lubridate::today())
 date_to_calmonth_n <- function(x = lubridate::today()) {
-  csutil::apply_fn_via_hash_table(x, date_to_calmonth_n_internal)
+  UseMethod("date_to_calmonth_n", x)
 }
-date_to_calmonth_n_internal <- function(x) {
-  # wk <- data.table::isoweek(date)
-  # wk <- formatC(wk, flag = "0", width = 2)
-  wk <- format.Date(x, "%m")
-  wk <- as.integer(wk)
-  return(wk)
+
+#' @rdname date_to_calmonth_n
+#' @export
+date_to_calmonth_n.character <- function(x = lubridate::today()) {
+  conversions_date_c_to[.(x)]$calmonth_n
+}
+
+#' @rdname date_to_calmonth_n
+#' @export
+date_to_calmonth_n.Date <- function(x = lubridate::today()) {
+  conversions_date_to[.(x)]$calmonth_n
 }
 
 #' Date -> calyearmonth (character)
@@ -85,14 +115,25 @@ date_to_calmonth_n_internal <- function(x) {
 #' @param x a Date object or string, in the form of 'yyyy-mm-dd'
 #'
 #' @return calyearmonth ("YYYY-MXX")
+#' @rdname date_to_calyearmonth_c
 #' @export
 #'
 #' @examples
 #' date_to_calyearmonth_c("2021-08-11")
 #' date_to_calyearmonth_c(lubridate::today())
 date_to_calyearmonth_c <- function(x = lubridate::today()) {
-  csutil::apply_fn_via_hash_table(x, date_to_calyearmonth_c_internal)
+  UseMethod("date_to_calyearmonth_c", x)
 }
-date_to_calyearmonth_c_internal <- function(x) {
-  format.Date(x, "%Y-M%m")
+
+#' @rdname date_to_calyearmonth_c
+#' @export
+date_to_calyearmonth_c.character <- function(x = lubridate::today()) {
+  conversions_date_c_to[.(x)]$calyearmonth_c
 }
+
+#' @rdname date_to_calyearmonth_c
+#' @export
+date_to_calyearmonth_c.Date <- function(x = lubridate::today()) {
+  conversions_date_to[.(x)]$calyearmonth_c
+}
+

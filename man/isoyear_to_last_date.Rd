@@ -2,9 +2,15 @@
 % Please edit documentation in R/conversion_date_isoweek_isoyear.R
 \name{isoyear_to_last_date}
 \alias{isoyear_to_last_date}
+\alias{isoyear_to_last_date.character}
+\alias{isoyear_to_last_date.numeric}
 \title{Last Sunday in ISO year}
 \usage{
 isoyear_to_last_date(x)
+
+\method{isoyear_to_last_date}{character}(x)
+
+\method{isoyear_to_last_date}{numeric}(x)
 }
 \arguments{
 \item{x}{ISO year, e.g. 2020}

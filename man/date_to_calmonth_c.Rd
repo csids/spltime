@@ -2,9 +2,15 @@
 % Please edit documentation in R/conversion_date_calmonth_calyear.R
 \name{date_to_calmonth_c}
 \alias{date_to_calmonth_c}
+\alias{date_to_calmonth_c.character}
+\alias{date_to_calmonth_c.Date}
 \title{Date -> calmonth (character)}
 \usage{
 date_to_calmonth_c(x = lubridate::today())
+
+\method{date_to_calmonth_c}{character}(x = lubridate::today())
+
+\method{date_to_calmonth_c}{Date}(x = lubridate::today())
 }
 \arguments{
 \item{x}{a Date object or string, in the form of 'yyyy-mm-dd'}

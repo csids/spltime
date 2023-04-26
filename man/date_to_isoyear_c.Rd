@@ -2,9 +2,15 @@
 % Please edit documentation in R/conversion_date_isoweek_isoyear.R
 \name{date_to_isoyear_c}
 \alias{date_to_isoyear_c}
+\alias{date_to_isoyear_c.character}
+\alias{date_to_isoyear_c.Date}
 \title{ISO year (character) from Date object}
 \usage{
 date_to_isoyear_c(x = lubridate::today())
+
+\method{date_to_isoyear_c}{character}(x = lubridate::today())
+
+\method{date_to_isoyear_c}{Date}(x = lubridate::today())
 }
 \arguments{
 \item{x}{a Date object or string, in the form of 'yyyy-mm-dd'}

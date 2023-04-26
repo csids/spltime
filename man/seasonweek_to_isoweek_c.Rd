@@ -2,12 +2,15 @@
 % Please edit documentation in R/conversion_season.R
 \name{seasonweek_to_isoweek_c}
 \alias{seasonweek_to_isoweek_c}
+\alias{seasonweek_to_isoweek_c.numeric}
 \title{Season week to ISO week (character). Season week 1 is ISO week 30.}
 \usage{
-seasonweek_to_isoweek_c(seasonweek)
+seasonweek_to_isoweek_c(x)
+
+\method{seasonweek_to_isoweek_c}{numeric}(x)
 }
 \arguments{
-\item{seasonweek}{Season week in a year (numeric), between 1 and 52}
+\item{x}{Season week in a year (numeric), between 1 and 52}
 }
 \value{
 ISO week in character
