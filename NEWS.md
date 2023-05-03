@@ -1,3 +1,7 @@
+# Version 2023.5.3
+
+- Inclusion of `now_c` that gives the current time in character format.
+
 # Version 2023.4.26
 
 - Uses binary searches to improve speed on date conversions.
