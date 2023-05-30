@@ -7,7 +7,8 @@ Authors@R: c(
   ),
   person(c("Richard","Aubrey"), "White", email = "hello@rwhite.no", role = c("aut"),
     comment = c(ORCID = "0000-0002-6747-1726")
-  )
+  ),
+  person("CSIDS", email = "hello@csids.no", role = c("cph"))
   )
 Description: Provides easy and consistent time conversion for public health purposes. The time conversion functions provided here are between date, ISO week, ISO yearweek, ISO year, calendar month/year, season, season week.  
 License: MIT + file LICENSE
