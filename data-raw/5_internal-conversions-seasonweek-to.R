@@ -36,7 +36,7 @@ conversions_seasonweek_to <- data.table(
 conversions_seasonweek_to[, isoweek_c := seasonweek_to_isoweek_c_internal(seasonweek)]
 conversions_seasonweek_to[, isoweek_n := seasonweek_to_isoweek_n_internal(seasonweek)]
 
-setkey(conversions_seasonweek_to, isoweek_n)
+setkey(conversions_seasonweek_to, seasonweek)
 
 # saving internal
 

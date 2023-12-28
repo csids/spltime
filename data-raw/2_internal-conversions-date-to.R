@@ -60,6 +60,22 @@ date_to_isoyearweek_c_internal <- function(x) {
   return(paste0(date_to_isoyear_c_internal(x), "-", date_to_isoweek_c_internal(x)))
 }
 
+date_to_isoquarter_c_internal <- function(x) {
+  isoweek <- date_to_isoweek_n_internal(x)
+  retval <- 1 + floor((isoweek-1)/13)
+  retval[retval==5] <- 4
+  retval <- as.character(retval)
+  return(retval)
+}
+
+date_to_isoquarter_n_internal <- function(x) {
+  return(as.numeric(date_to_isoquarter_c_internal(x)))
+}
+
+date_to_isoyearquarter_c_internal <- function(x){
+  return(paste0(date_to_isoyear_c_internal(x), "-Q", date_to_isoquarter_c_internal(x)))
+}
+
 conversions_date_to <- data.table(
   date = c(seq(as.Date("1900-01-01"), as.Date("2200-12-31"), 1), as.Date("9999-09-09"))
 )
@@ -75,6 +91,9 @@ conversions_date_to[, isoyear_n := date_to_isoyear_n_internal(date)]
 conversions_date_to[, isoweek_c := date_to_isoweek_c_internal(date)]
 conversions_date_to[, isoweek_n := date_to_isoweek_n_internal(date)]
 conversions_date_to[, isoyearweek_c := date_to_isoyearweek_c_internal(date)]
+conversions_date_to[, isoquarter_c := date_to_isoquarter_c_internal(date)]
+conversions_date_to[, isoquarter_n := date_to_isoquarter_n_internal(date)]
+conversions_date_to[, isoyearquarter_c := date_to_isoyearquarter_c_internal(date)]
 conversions_date_c_to <- copy(conversions_date_to)
 conversions_date_c_to[, date := as.character(date)]
 setnames(conversions_date_c_to, "date", "date_c")

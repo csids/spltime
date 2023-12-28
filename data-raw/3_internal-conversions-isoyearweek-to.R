@@ -34,6 +34,27 @@ isoyearweek_to_isoweek_n_internal <- function(yrwk) {
   return(week_n)
 }
 
+isoweek_to_isoquarter_n_internal <- function(isoweek) {
+  # take both char/n in input
+  retval <- 1 + floor((isoweek-1)/13)
+  retval[retval==5] <- 4
+  return(retval)
+}
+
+isoyearweek_to_isoquarter_c_internal <- function(yrwk) {
+  week <- isoyearweek_to_isoweek_n_internal(yrwk)
+  quarter <- isoweek_to_isoquarter_n_internal(week)
+  return(as.character(quarter))
+}
+
+isoyearweek_to_isoquarter_n_internal <- function(yrwk) {
+  return(as.character(isoyearweek_to_isoquarter_c_internal(yrwk)))
+}
+
+isoyearweek_to_isoyearquarter_c_internal <- function(yrwk) {
+  paste0(isoyearweek_to_isoyear_c_internal(yrwk),"-Q",isoyearweek_to_isoquarter_c_internal(yrwk))
+}
+
 isoyearweek_to_last_date_internal <- function(x) {
   sun <- NULL
   retval <- data.table(isoyearweek = x)[cstime::dates_by_isoyearweek, on = "isoyearweek", sun := sun]$sun
@@ -63,6 +84,9 @@ conversions_isoyearweek_to[, isoweek_c := isoyearweek_to_isoweek_c_internal(isoy
 conversions_isoyearweek_to[, isoweek_n := isoyearweek_to_isoweek_n_internal(isoyearweek)]
 conversions_isoyearweek_to[, last_date := isoyearweek_to_last_date_internal(isoyearweek)]
 conversions_isoyearweek_to[, season_c := isoyearweek_to_season_c_internal(isoyearweek)]
+conversions_isoyearweek_to[, isoquarter_c := isoyearweek_to_isoquarter_c_internal(isoyearweek)]
+conversions_isoyearweek_to[, isoquarter_n := isoyearweek_to_isoquarter_n_internal(isoyearweek)]
+conversions_isoyearweek_to[, isoyearquarter_c := isoyearweek_to_isoyearquarter_c_internal(isoyearweek)]
 
 setkey(conversions_isoyearweek_to, isoyearweek)
 

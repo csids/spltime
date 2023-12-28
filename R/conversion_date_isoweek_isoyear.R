@@ -158,8 +158,104 @@ date_to_isoyearweek_c.Date <- function(x = lubridate::today()) {
   conversions_date_to[.(x)]$isoyearweek_c
 }
 
+#' ISO quarter (numeric) from Date object
+#'
+#' @param x a Date object or string, in the form of 'yyyy-mm-dd'
+#'
+#' @return ISO quarter in numeric
+#' @export
+#'
+#' @examples
+#' date_to_isoquarter_n("2021-08-11")
+#' date_to_isoquarter_n(lubridate::today())
+date_to_isoquarter_n <- function(x = lubridate::today()) {
+  UseMethod("date_to_isoquarter_n", x)
+}
+
+#' @rdname date_to_isoquarter_n
+#' @export
+date_to_isoquarter_n.default <- function(x) {
+  rep(NA_integer_, length(x))
+}
+
+#' @rdname date_to_isoquarter_n
+#' @export
+date_to_isoquarter_n.character <- function(x = lubridate::today()) {
+  conversions_date_c_to[.(x)]$isoquarter_n
+}
+
+#' @rdname date_to_isoquarter_n
+#' @export
+date_to_isoquarter_n.Date <- function(x = lubridate::today()) {
+  conversions_date_to[.(x)]$isoquarter_n
+}
+
+#' ISO quarter (character) from Date object
+#'
+#' @param x a Date object or string, in the form of 'yyyy-mm-dd'
+#'
+#' @return ISO quarter in character
+#' @export
+#'
+#' @examples
+#' date_to_isoquarter_c("2021-08-11")
+#' date_to_isoquarter_c(lubridate::today())
+date_to_isoquarter_c <- function(x = lubridate::today()) {
+  UseMethod("date_to_isoquarter_c", x)
+}
+
+#' @rdname date_to_isoquarter_c
+#' @export
+date_to_isoquarter_c.default <- function(x) {
+  rep(NA_character_, length(x))
+}
+
+#' @rdname date_to_isoquarter_c
+#' @export
+date_to_isoquarter_c.character <- function(x = lubridate::today()) {
+  conversions_date_c_to[.(x)]$isoquarter_c
+}
+
+#' @rdname date_to_isoquarter_c
+#' @export
+date_to_isoquarter_c.Date <- function(x = lubridate::today()) {
+  conversions_date_to[.(x)]$isoquarter_c
+}
+
+#' ISO year and quarter (character) from Date object
+#'
+#' @param x a Date object or string, in the form of 'yyyy-mm-dd'
+#'
+#' @return ISO year and quarter in character
+#' @export
+#'
+#' @examples
+#' date_to_isoyearquarter_c("2021-08-11")
+#' date_to_isoyearquarter_c(lubridate::today())
+date_to_isoyearquarter_c <- function(x = lubridate::today()) {
+  UseMethod("date_to_isoyearquarter_c", x)
+}
+
+#' @rdname date_to_isoyearquarter_c
+#' @export
+date_to_isoyearquarter_c.default <- function(x) {
+  rep(NA_character_, length(x))
+}
+
+#' @rdname date_to_isoyearquarter_c
+#' @export
+date_to_isoyearquarter_c.character <- function(x = lubridate::today()) {
+  conversions_date_c_to[.(x)]$isoyearquarter_c
+}
+
+#' @rdname date_to_isoyearquarter_c
+#' @export
+date_to_isoyearquarter_c.Date <- function(x = lubridate::today()) {
+  conversions_date_to[.(x)]$isoyearquarter_c
+}
+
 #
-# isoyearweek vs isoyear, isoweek ====
+# isoyearweek vs isoyear, isoweek, isoquarter ====
 #
 
 #' ISO yearweek to year (numeric)
@@ -261,6 +357,80 @@ isoyearweek_to_isoweek_c.default <- function(x) {
 #' @export
 isoyearweek_to_isoweek_c.character <- function(x) {
   conversions_isoyearweek_to[.(x)]$isoweek_c
+}
+
+#' ISO yearweek to quarter (numeric)
+#'
+#' This function breaks the string connected with '-' into year/quarter
+#' @param x Year-week, e.g. "2020-19" for 19th week in 2020
+#' @return ISO quarter in numeric
+#' @rdname isoyearweek_to_isoquarter_n
+#' @export
+#' @examples 
+#' isoyearweek_to_isoquarter_n('2020-19')
+isoyearweek_to_isoquarter_n <- function(x) {
+  UseMethod("isoyearweek_to_isoquarter_n", x)
+}
+
+#' @rdname isoyearweek_to_isoquarter_n
+#' @export
+isoyearweek_to_isoquarter_n.default <- function(x) {
+  rep(NA_integer_, length(x))
+}
+
+#' @rdname isoyearweek_to_isoquarter_n
+#' @export
+isoyearweek_to_isoquarter_n.character <- function(x) {
+  conversions_isoyearweek_to[.(x)]$isoquarter_n
+}
+
+#' ISO yearweek to quarter (character)
+#'
+#' This function breaks the string connected with '-' into year/quarter
+#' @param x Year-week, e.g. "2020-19" for 19th week in 2020
+#' @return ISO quarter in character
+#' @rdname isoyearweek_to_isoquarter_c
+#' @export
+#' @examples 
+#' isoyearweek_to_isoquarter_c('2020-19')
+isoyearweek_to_isoquarter_c <- function(x) {
+  UseMethod("isoyearweek_to_isoquarter_c", x)
+}
+
+#' @rdname isoyearweek_to_isoquarter_c
+#' @export
+isoyearweek_to_isoquarter_c.default <- function(x) {
+  rep(NA_character_, length(x))
+}
+
+#' @rdname isoyearweek_to_isoquarter_c
+#' @export
+isoyearweek_to_isoquarter_c.character <- function(x) {
+  conversions_isoyearweek_to[.(x)]$isoquarter_c
+}
+
+#' ISO yearweek to ISO yearquarter (character)
+#'
+#' @param x Year-week, e.g. "2020-19" for 19th week in 2020
+#' @return ISO yearquarter in character
+#' @rdname isoyearweek_to_isoyearquarter_c
+#' @export
+#' @examples 
+#' isoyearweek_to_isoyearquarter_c('2020-19')
+isoyearweek_to_isoyearquarter_c <- function(x) {
+  UseMethod("isoyearweek_to_isoyearquarter_c", x)
+}
+
+#' @rdname isoyearweek_to_isoyearquarter_c
+#' @export
+isoyearweek_to_isoyearquarter_c.default <- function(x) {
+  rep(NA_character_, length(x))
+}
+
+#' @rdname isoyearweek_to_isoyearquarter_c
+#' @export
+isoyearweek_to_isoyearquarter_c.character <- function(x) {
+  conversions_isoyearweek_to[.(x)]$isoyearquarter_c
 }
 
 #

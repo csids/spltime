@@ -1,5 +1,5 @@
 # gen_dates_by_isoyearweek ----
-days <- data.table::data.table(day = seq.Date(as.Date("1950-01-02"), as.Date("2100-01-01"), by = "days"))
+days <- data.table::data.table(day = seq.Date(as.Date("1900-01-01"), as.Date("2100-01-01"), by = "days"))
 days[, isoyear := as.integer(format.Date(day, format = "%G"))]
 days[, isoyearweek := format.Date(day, format = "%G-%V")]
 days <- days[, .(mon = as.Date(min(day))), by = .(isoyear, isoyearweek)]

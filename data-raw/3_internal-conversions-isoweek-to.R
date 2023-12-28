@@ -17,10 +17,19 @@ isoweek_to_seasonweek_n_internal <- function(isoweek) {
   return(retval)
 }
 
+isoweek_to_isoquarter_n_internal <- function(isoweek) {
+  # take both char/n in input
+  retval <- 1 + floor((isoweek-1)/13)
+  retval[retval==5] <- 4
+  return(retval)
+}
+
 conversions_isoweek_n_to <- data.table(
   isoweek_n = 1:53
 )
 conversions_isoweek_n_to[, seasonweek_n := isoweek_to_seasonweek_n_internal(isoweek_n)]
+conversions_isoweek_n_to[, isoquarter_n := isoweek_to_isoquarter_n_internal(isoweek_n)]
+conversions_isoweek_n_to[, isoquarter_c := as.character(isoquarter_n)]
 
 conversions_isoweek_c_to_1 <- copy(conversions_isoweek_n_to)
 conversions_isoweek_c_to_2 <- copy(conversions_isoweek_n_to)

@@ -1,3 +1,7 @@
+# Version 2023.12.28
+
+- Adding support for isoquarter and isoyearquarter
+
 # Version 2023.5.3
 
 - Inclusion of `now_c` that gives the current time in character format.
