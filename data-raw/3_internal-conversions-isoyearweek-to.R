@@ -48,7 +48,7 @@ isoyearweek_to_isoquarter_c_internal <- function(yrwk) {
 }
 
 isoyearweek_to_isoquarter_n_internal <- function(yrwk) {
-  return(as.character(isoyearweek_to_isoquarter_c_internal(yrwk)))
+  return(as.numeric(isoyearweek_to_isoquarter_c_internal(yrwk)))
 }
 
 isoyearweek_to_isoyearquarter_c_internal <- function(yrwk) {
