@@ -1,0 +1,12 @@
+pandoc: 2.9.2.1
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  cstime: cstime.html
+  date_conversion: date_conversion.html
+  season: season.html
+last_built: 2024-06-13T12:10Z
+urls:
+  reference: https://www.csids.no/cstime/reference
+  article: https://www.csids.no/cstime/articles
+
