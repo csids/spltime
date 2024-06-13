@@ -1,3 +1,7 @@
+# Version 2024.5.13
+
+- Adding season_to_last_date
+
 # Version 2023.12.28
 
 - Adding support for isoquarter and isoyearquarter

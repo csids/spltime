@@ -554,3 +554,28 @@ isoyearweek_to_last_date.default <- function(x) {
 isoyearweek_to_last_date.character <- function(x) {
   conversions_isoyearweek_to[.(x)]$last_date
 }
+
+#' Last date in season
+#'
+#' Returns the last Sunday in the season
+#' @param x Season, e.g. "2019/2020"
+#' @return Date of last Sunday of that season
+#' @rdname season_to_last_date
+#' @examples
+#' isoyearweek_to_last_date(c("2019-19", "2020-01"))
+#' @export
+season_to_last_date <- function(x) {
+  UseMethod("season_to_last_date", x)
+}
+
+#' @rdname season_to_last_date
+#' @export
+season_to_last_date.default <- function(x) {
+  rep(as.Date(NA), length(x))
+}
+
+#' @rdname season_to_last_date
+#' @export
+season_to_last_date.character <- function(x) {
+  conversions_season_to[.(x)]$last_date
+}
